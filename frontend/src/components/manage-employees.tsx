@@ -257,9 +257,6 @@ export function ManageEmployees({ apiBaseUrl, token, userRole, storeAccess }: Ma
               </TableHeader>
               <TableBody>
                 {employees.map((employee) => {
-                  const employeeStores = selectedStores[employee.id] || new Set<string>()
-
-                  // Clean up fullName - remove "Optional" text and brackets
                   const cleanName = (employee.fullName || employee.email || 'Unknown')
                     .replace(/Optional\[/gi, '')
                     .replace(/\]/g, '')
